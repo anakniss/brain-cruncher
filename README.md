@@ -1,5 +1,5 @@
 # Brain-Cruncher
-Esse é um projeto que estamos criando durante a disciplina de Melhoria de Processos de Software na Universidade UNIVALI<br>
+Esse é um projeto que estamos criando durante a disciplina de Melhoria de Processos de Software na UNIVALI<br>
 O sistema caracteriza-se por ser um gerenciador de avaliações gamificadas para auxiliar professores a testarem os conhecimentos dos estudantes na matéria de Lógica de Programação<br>
 Funciona com um dinâmica de quiz, com níveis de dificuldade, trilha de desenvolvimento  e geração de relatório das questões na parte do estudante<br>
 Em relação ao professor, ele terá a possibilidade de criar as questões, a avaliar o desempenho dos estudantes e gerar relatórios<br>
