@@ -4,11 +4,11 @@
 -> Funciona com um dinâmica de quiz, com níveis de dificuldade, trilha de desenvolvimento  e geração de relatório das questões na parte do estudante<br>
 -> Em relação ao professor, ele terá a possibilidade de criar as questões, a avaliar o desempenho dos estudantes e gerar relatórios<br>
 ## Desenvolvedores
-ANA CLARA KNISS<br>
-ERICK LEMOS BARRETO<br>
-MARIANA FERREIRA<br>
-MELISSA MOREIRA DE OLIVEIRA<br>
-VICTOR HUGO CHRISOSTHEMOS TEIXEIRA<br>
+Ana Clara Kniss<br>
+Erick Lemos Barreto<br>
+Mariana Ferreira<br>
+Melissa Moreira de Oliveira<br>
+Victor Hugo Chrisosthemos Teixeira<br>
 ## Médias
 O semestre é dividido em 3 médias que serão abordadas sequencialmente para completar o projeto.<br>
 ## Progresso
