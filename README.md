@@ -4,6 +4,6 @@ O sistema caracteriza-se por ser um gerenciador de avaliações gamificadas para
 ## Médias
 O semestre é dividido em 3 médias que serão liberadas gradativamente para completar o conteúdo.<br>
 ## Progresso
-- [x] [M1](./M1/README.md)<br>
+- [x] [M1](./M1)<br>
 - [ ] M2<br>
 - [ ] M3<br>
