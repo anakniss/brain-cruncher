@@ -4,7 +4,7 @@
 -> Funciona com um dinâmica de quiz, com níveis de dificuldade, trilha de desenvolvimento  e geração de relatório das questões na parte do estudante<br>
 -> Em relação ao professor, ele terá a possibilidade de criar as questões, a avaliar o desempenho dos estudantes e gerar relatórios<br>
 ## Desenvolvedores
-[Ana Clara Kniss](https://www.linkedin.com/in/anakniss/)<br>
+[Ana Clara Kniss](https://www.linkedin.com/in/anakniss/){:target="_blank"}<br>
 Erick Lemos Barreto<br>
 Mariana Ferreira<br>
 Melissa Moreira de Oliveira<br>
