@@ -1,28 +1,34 @@
 namespace backend.Domain.Entities;
 
-public class Student
+public class User
 {
     public Guid Id { get; set; }
     public string? Name { get; set; }
     public string? Email { get; set; }
-    public string? StudentId { get; set; }
     public string? Password { get; set; }
     private int TotalScore { get; set; }
     public DateTime CreatedAt { get; set; }
+    public UserRole Role { get; set; }
 
-    public Student(string name, string email, string studentId, string password)
+    public User(string name, string email, string password, UserRole role)
     {
         Id = Guid.NewGuid();
         Name = name;
         Email = email;
-        StudentId = studentId;
         Password = password;
         TotalScore = 0;
         CreatedAt = DateTime.Now;
+        Role = role;
     }
 
     public void UpdateScore(int score)
     {
         TotalScore += score;
     }
+}
+
+public enum UserRole
+{
+    Student,
+    Teacher
 }
