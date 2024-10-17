@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Menu Lateral</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/perguntas.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div><img src="images/pinguim.png" /></div>
+            <br><br>
+            <ul>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="desempenho.html">Desempenho</a></li>
+                <li><a href="perguntas.html">Criar Perguntas</a></li>
+                <li><a href="#">Notificações</a></li>
+                <li><a href="index.html">Sair</a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <section class="quiz-section">
+                <h3>Criar Nova Pergunta</h3>
+                <form id="quizForm">
+                    <label for="question">Pergunta:</label>
+                    <textarea id="question" name="question" rows="4" required></textarea>
+    
+                    <label for="option1">Opção 1:</label>
+                    <input type="text" id="option1" name="option1" required>
+    
+                    <label for="option2">Opção 2:</label>
+                    <input type="text" id="option2" name="option2" required>
+    
+                    <label for="option3">Opção 3:</label>
+                    <input type="text" id="option3" name="option3" required>
+    
+                    <label for="option4">Opção 4:</label>
+                    <input type="text" id="option4" name="option4" required>
+    
+                    <label for="correctOption">Opção Correta:</label>
+                    <select id="correctOption" name="correctOption" required>
+                        <option value="1">Opção 1</option>
+                        <option value="2">Opção 2</option>
+                        <option value="3">Opção 3</option>
+                        <option value="4">Opção 4</option>
+                    </select>
+    
+                    <button type="submit">Salvar Pergunta</button>
+                </form>
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>
