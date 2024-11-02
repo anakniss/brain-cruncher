@@ -31,5 +31,5 @@
 3. [X] Sua colocação em relação a turma
 4. [X] Consultar perguntas respondidas e exportar em PDF
 5. [X] 1 trilha tem 5 fases, cada fase com 4 perguntas e 5 alternativas, apensa uma resposta certa
-6. [ ] Cada pergunta, 180 segundos, passou do tempo vai pra próxima
-7. [ ] Passou as 4 perguntas, pergunta se quer passar para outra fase
+6. [X] Cada pergunta, 180 segundos, passou do tempo vai pra próxima
+7. [X] Passou as 4 perguntas, pergunta se quer passar para outra fase
