@@ -26,10 +26,10 @@
 3. [] Intuitivo
 
 ## **Modo Aluno**
-1. [] Jogar a trilha de Lógica de programação
-2. [] Consultar seu desempenho
-3. [] Sua colocação em relação a turma
-4. [] Consultar perguntas respondidas e exportar em PDF
-5. [] 1 trilha tem 5 fases, cada fase com 4 perguntas e 5 alternativas, apensa uma resposta certa
+1. [X] Jogar a trilha de Lógica de programação
+2. [X] Consultar seu desempenho
+3. [X] Sua colocação em relação a turma
+4. [X] Consultar perguntas respondidas e exportar em PDF
+5. [X] 1 trilha tem 5 fases, cada fase com 4 perguntas e 5 alternativas, apensa uma resposta certa
 6. [] Cada pergunta, 180 segundos, passou do tempo vai pra próxima
 7. [] Passou as 4 perguntas, pergunta se quer passar para outra fase
