@@ -4,8 +4,8 @@
 - Basicamente precisamos abordar isso:
 
 ## **Desejos**
-1. [] Maior interação
-2. [] Motivação para continuar
+1. [ ] Maior interação
+2. [ ] Motivação para continuar
 
 ## **O jogo**
 1. [X] Modo Professor
