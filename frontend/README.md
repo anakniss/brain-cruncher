@@ -17,13 +17,13 @@
 3. [X] Cadastrar aluno(código de matrícula, nome, e-mail)
 
 ## **Entrar no sistema**
-1. [] E-mail válido
-2. [] Senha alfanumérica de 8 a 20 caracteres
+1. [ ] E-mail válido
+2. [ ] Senha alfanumérica de 8 a 20 caracteres
 
 ## **Arquitetura**
 1. [X] Web
-2. [] Responsivo
-3. [] Intuitivo
+2. [ ] Responsivo
+3. [ ] Intuitivo
 
 ## **Modo Aluno**
 1. [X] Jogar a trilha de Lógica de programação
@@ -31,5 +31,5 @@
 3. [X] Sua colocação em relação a turma
 4. [X] Consultar perguntas respondidas e exportar em PDF
 5. [X] 1 trilha tem 5 fases, cada fase com 4 perguntas e 5 alternativas, apensa uma resposta certa
-6. [] Cada pergunta, 180 segundos, passou do tempo vai pra próxima
-7. [] Passou as 4 perguntas, pergunta se quer passar para outra fase
+6. [ ] Cada pergunta, 180 segundos, passou do tempo vai pra próxima
+7. [ ] Passou as 4 perguntas, pergunta se quer passar para outra fase
