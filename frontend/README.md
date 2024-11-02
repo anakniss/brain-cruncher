@@ -1,31 +1,31 @@
 # Requerimentos
 
-(Requerimento_da_Aula - ESTUDO DE CASO 2024.pdf)
-Basicamente precisamos abordar isso:
+- (Requerimento_da_Aula - ESTUDO DE CASO 2024.pdf)
+- Basicamente precisamos abordar isso:
 
-**Desejos**
+## **Desejos**
 1. Maior interação
 2. Motivação para continuar
 
-**O jogo**
+## **O jogo**
 1. Modo Professor
 2. Modo Aluno
 
-**Modo Professo**r
+## **Modo Professo**r
 1. Relatório desempenho alunos
 2. Cadastro de perguntas e respostas e nível de dificuldade(iniciante, intermediário e avançado) com aleatoriedade ou manual(somente professor decide)
 3. Cadastrar aluno(código de matrícula, nome, e-mail)
 
-**Entrar no sistema**
+## **Entrar no sistema**
 1. E-mail válido
 2. Senha alfanumérica de 8 a 20 caracteres
 
-**Arquitetura**
+## **Arquitetura**
 1. Web
 2. Responsivo
 3. Intuitivo
 
-**Modo Aluno**
+## **Modo Aluno**
 1. Jogar a trilha de Lógica de programação
 2. Consultar seu desempenho
 3. Sua colocação em relação a turma
