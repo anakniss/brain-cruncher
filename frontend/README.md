@@ -17,7 +17,7 @@
 3. [X] Cadastrar aluno(código de matrícula, nome, e-mail)
 
 ## **Entrar no sistema**
-1. [ ] E-mail válido
+1. [X] E-mail válido
 2. [ ] Senha alfanumérica de 8 a 20 caracteres
 
 ## **Arquitetura**
