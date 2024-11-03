@@ -8,40 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b79de0e-00cb-4c2f-a145-65f528feea81" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/Data/ExamRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Data/QuestionRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Data/QuizDbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Data/UserRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Helpers/Enums/ExamType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Helpers/Enums/Role.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Models/Exam.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Models/ExamResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Models/Option.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Models/Question.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Models/Role.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Models/User.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Services/AuthService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Services/ExamService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/Services/QuestionService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.backend/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend.sln" beforeDir="false" afterPath="$PROJECT_DIR$/backend.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/Controllers/ExamController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/Controllers/QuestionController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.backend/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Data/ExamRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Data/ExamRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/Data/QuizDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Data/QuizDbContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/backend.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/obj/Debug/net8.0/backend.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/backend/obj/Debug/net8.0/backend.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/obj/Debug/net8.0/backend.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/backend/obj/Debug/net8.0/backend.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/obj/Debug/net8.0/backend.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/backend/obj/Debug/net8.0/backend.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/obj/Debug/net8.0/backend.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/backend/obj/Debug/net8.0/backend.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/obj/backend.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/obj/backend.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/obj/backend.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/backend/obj/backend.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/backend/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/backend/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/backend/obj/rider.project.model.nuget.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/backend/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/Application/Services/ScoreService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/Domain/Entities/Question.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/Domain/Entities/User.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/Infrastructure/Persistence/ApplicationDbContext.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,15 +33,22 @@
   "associatedIndex": 5
 }]]></component>
   <component name="ProjectId" id="2oK0wLTKiOjcs81YLgUdwbHNdgF" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -78,6 +58,9 @@
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ],
     "rider.external.source.directories": [
       "C:\\Users\\ackni\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
       "C:\\Users\\ackni\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
@@ -113,7 +96,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1730603197778</updated>
-      <workItem from="1730603200684" duration="9866000" />
+      <workItem from="1730603200684" duration="15197000" />
     </task>
     <servers />
   </component>
@@ -121,6 +104,7 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
 </project>
