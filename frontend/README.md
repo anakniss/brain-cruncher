@@ -23,7 +23,10 @@
 ## **Arquitetura**
 1. [X] Web
 2. [ ] Responsivo
-3. [ ] Intuitivo
+     - Media Queries
+       [ ] login.html
+       [ ] login.html
+4. [ ] Intuitivo
 
 ## **Modo Aluno**
 1. [X] Jogar a trilha de Lógica de programação
