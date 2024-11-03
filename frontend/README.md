@@ -23,9 +23,9 @@
 ## **Arquitetura**
 1. [X] Web
 2. [ ] Responsivo
-     - Media Queries
-       [ ] login.html
-       [ ] login.html
+     a. [ ] login.html
+     b. [ ] login.html
+     c. [ ] login.html
 4. [ ] Intuitivo
 
 ## **Modo Aluno**
