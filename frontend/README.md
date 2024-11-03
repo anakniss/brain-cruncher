@@ -23,7 +23,8 @@
 ## **Arquitetura**
 1. [X] Web
 2. [ ] Responsivo
-     a. [ ] login.html
+   a. [ ] login.html
+     
      b. [ ] login.html
      c. [ ] login.html
 4. [ ] Intuitivo
