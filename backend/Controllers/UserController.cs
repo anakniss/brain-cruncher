@@ -17,7 +17,7 @@ public class UserController : ControllerBase
         Id = 1,
         Name = "Ana",
         Email = "ackniss@gmail.com",
-        Exams = new List<Exam>(),
+        // UserExams = new List<UserExam>();
         Password = "123",
         Role = 0
       }

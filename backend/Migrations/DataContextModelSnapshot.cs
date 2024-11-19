@@ -49,12 +49,20 @@ namespace backend.Migrations
             modelBuilder.Entity("backend.Entities.Exam", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CreatedById")
                         .HasColumnType("int");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CreatedById");
 
                     b.ToTable("Exams");
                 });
@@ -93,9 +101,6 @@ namespace backend.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ExamId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -109,9 +114,22 @@ namespace backend.Migrations
 
                     b.HasKey("Id");
 
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("backend.Entities.UserExam", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ExamId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "ExamId");
+
                     b.HasIndex("ExamId");
 
-                    b.ToTable("Users");
+                    b.ToTable("UserExams");
                 });
 
             modelBuilder.Entity("backend.Entities.Alternative", b =>
@@ -124,8 +142,8 @@ namespace backend.Migrations
             modelBuilder.Entity("backend.Entities.Exam", b =>
                 {
                     b.HasOne("backend.Entities.User", "CreatedBy")
-                        .WithMany("Exams")
-                        .HasForeignKey("Id")
+                        .WithMany()
+                        .HasForeignKey("CreatedById")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -139,18 +157,30 @@ namespace backend.Migrations
                         .HasForeignKey("ExamId");
                 });
 
-            modelBuilder.Entity("backend.Entities.User", b =>
+            modelBuilder.Entity("backend.Entities.UserExam", b =>
                 {
-                    b.HasOne("backend.Entities.Exam", null)
-                        .WithMany("Users")
-                        .HasForeignKey("ExamId");
+                    b.HasOne("backend.Entities.Exam", "Exam")
+                        .WithMany("UserExams")
+                        .HasForeignKey("ExamId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("backend.Entities.User", "User")
+                        .WithMany("UserExams")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Exam");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("backend.Entities.Exam", b =>
                 {
                     b.Navigation("Questions");
 
-                    b.Navigation("Users");
+                    b.Navigation("UserExams");
                 });
 
             modelBuilder.Entity("backend.Entities.Question", b =>
@@ -160,7 +190,7 @@ namespace backend.Migrations
 
             modelBuilder.Entity("backend.Entities.User", b =>
                 {
-                    b.Navigation("Exams");
+                    b.Navigation("UserExams");
                 });
 #pragma warning restore 612, 618
         }
