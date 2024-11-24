@@ -1,6 +1,5 @@
 using backend.Data;
 using backend.Entities;
-using backend.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -55,7 +54,9 @@ public class UserController : ControllerBase
     if (dbUser is null)
       return NotFound("User not found.");
 
-    dbUser.Name = user.Name;
+    dbUser.FirstName = user.FirstName;
+    dbUser.LastName = user.LastName;
+    dbUser.Username = user.Username;
     dbUser.Email = user.Email;
     dbUser.Password = user.Password;
     dbUser.Role = user.Role;
