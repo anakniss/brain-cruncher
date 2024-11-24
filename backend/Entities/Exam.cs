@@ -11,4 +11,7 @@ public class Exam
     public DateTime CreatedAt { get; set; }
     public ExamType Type { get; set; }
     public int CreatedById { get; set; }
+
+    [ForeignKey("CreatedById")] 
+    public User CreatedBy { get; set; } = null!;
 }

@@ -41,7 +41,16 @@ public class ExamController : ControllerBase
     public async Task<IActionResult> GetExam(int id)
     {
         var exam = await _context.Exams
-            .FirstOrDefaultAsync(e => e.Id == id);
+            .Where(e => e.Id == id)
+            .Select(e => new
+            {
+                e.Id,
+                e.Title,
+                e.Type,
+                e.CreatedAt,
+                e.CreatedById
+            })
+            .FirstOrDefaultAsync();
 
         if (exam == null)
         {

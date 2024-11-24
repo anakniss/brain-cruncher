@@ -16,7 +16,7 @@ public class UserController : ControllerBase
     _context = context;
   }
   
-  [HttpGet]
+  [HttpGet("GetAllUsers")]
   public async Task<ActionResult<List<User>>> GetAllUsers()
   {
     var users = await _context.Users.ToListAsync();
@@ -35,7 +35,7 @@ public class UserController : ControllerBase
   }
   
   [HttpPost]
-  public async Task<ActionResult<object>> AddUser(User user)
+  public async Task<ActionResult<object>> CreateUser(User user)
   {
     _context.Users.Add(user);
     await _context.SaveChangesAsync();
