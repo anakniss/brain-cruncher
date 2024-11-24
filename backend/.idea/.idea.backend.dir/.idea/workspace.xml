@@ -9,12 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5442cdb3-d6b0-4113-a95a-1d22479a9509" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Controllers/UserExamController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/QuestionController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.backend.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.backend.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/ExamController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ExamController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Exam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Exam.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/DataContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/DataContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Question.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Question.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/backend.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/backend.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/backend.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/backend.exe" afterDir="false" />
@@ -123,7 +121,7 @@
       <workItem from="1732409269399" duration="4451000" />
       <workItem from="1732413801926" duration="1669000" />
       <workItem from="1732417407781" duration="3836000" />
-      <workItem from="1732421285505" duration="14664000" />
+      <workItem from="1732421285505" duration="17142000" />
     </task>
     <servers />
   </component>

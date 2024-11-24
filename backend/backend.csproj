@@ -64,6 +64,8 @@
     <Compile Remove="Migrations\20241124164313_Initial.Designer.cs" />
     <Compile Remove="Migrations\20241124171453_Initial.cs" />
     <Compile Remove="Migrations\20241124171453_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20241124180010_Initial.cs" />
+    <Compile Remove="Migrations\20241124180010_Initial.Designer.cs" />
   </ItemGroup>
 
 </Project>

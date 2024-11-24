@@ -21,7 +21,6 @@ public class ExamController : ControllerBase
     {
         var exams = await _context.Exams.ToListAsync();
         
-        
         if (!exams.Any())
             return NotFound("No exams found.");
         
@@ -59,8 +58,7 @@ public class ExamController : ControllerBase
 
         return Ok(exam);
     }
-
-  
+    
     [HttpPost]
     public async Task<IActionResult> CreateExam(Exam exam)
     {
@@ -73,7 +71,6 @@ public class ExamController : ControllerBase
 
         return Ok(exam);
     }
-
     
     [HttpPut]
     public async Task<ActionResult> UpdateExam(Exam exam)
