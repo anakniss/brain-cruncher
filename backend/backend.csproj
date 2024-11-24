@@ -26,4 +26,20 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Controllers\WeatherForecastController.cs" />
+    <Compile Remove="WeatherForecast.cs" />
+    <Compile Remove="Migrations\DataContextModelSnapshot.cs" />
+    <Compile Remove="Migrations\20241124013937_UpdateExamResultModel.cs" />
+    <Compile Remove="Migrations\20241124013937_UpdateExamResultModel.Designer.cs" />
+    <Compile Remove="Migrations\20241124014033_Initial.cs" />
+    <Compile Remove="Migrations\20241124014033_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20241124020530_Initial.cs" />
+    <Compile Remove="Migrations\20241124020530_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20241124024929_Initial.cs" />
+    <Compile Remove="Migrations\20241124024929_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20241124025107_AddNewMigration.cs" />
+    <Compile Remove="Migrations\20241124025107_AddNewMigration.Designer.cs" />
+  </ItemGroup>
+
 </Project>

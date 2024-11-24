@@ -1,4 +1,5 @@
 using backend.Entities;
+using backend.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers;
@@ -17,9 +18,8 @@ public class UserController : ControllerBase
         Id = 1,
         Name = "Ana",
         Email = "ackniss@gmail.com",
-        // UserExams = new List<UserExam>();
         Password = "123",
-        Role = 0
+        Role = Role.Admin
       }
     };
 

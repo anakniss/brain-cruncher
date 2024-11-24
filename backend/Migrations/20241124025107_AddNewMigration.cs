@@ -5,7 +5,7 @@
 namespace backend.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class AddNewMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -47,22 +47,50 @@ namespace backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Question",
+                name: "ExamResults",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CorrectAnswers = table.Column<int>(type: "int", nullable: false),
+                    ExamId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ExamResults", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_ExamResults_Exams_ExamId",
+                        column: x => x.ExamId,
+                        principalTable: "Exams",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_ExamResults_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Questions",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ExamId = table.Column<int>(type: "int", nullable: true)
+                    ExamId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Question", x => x.Id);
+                    table.PrimaryKey("PK_Questions", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Question_Exams_ExamId",
+                        name: "FK_Questions_Exams_ExamId",
                         column: x => x.ExamId,
                         principalTable: "Exams",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -90,29 +118,40 @@ namespace backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Alternative",
+                name: "Alternatives",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsCorrect = table.Column<bool>(type: "bit", nullable: false),
-                    QuestionId = table.Column<int>(type: "int", nullable: true)
+                    QuestionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Alternative", x => x.Id);
+                    table.PrimaryKey("PK_Alternatives", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Alternative_Question_QuestionId",
+                        name: "FK_Alternatives_Questions_QuestionId",
                         column: x => x.QuestionId,
-                        principalTable: "Question",
-                        principalColumn: "Id");
+                        principalTable: "Questions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Alternative_QuestionId",
-                table: "Alternative",
+                name: "IX_Alternatives_QuestionId",
+                table: "Alternatives",
                 column: "QuestionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ExamResults_ExamId",
+                table: "ExamResults",
+                column: "ExamId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ExamResults_UserId",
+                table: "ExamResults",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Exams_CreatedById",
@@ -120,8 +159,8 @@ namespace backend.Migrations
                 column: "CreatedById");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Question_ExamId",
-                table: "Question",
+                name: "IX_Questions_ExamId",
+                table: "Questions",
                 column: "ExamId");
 
             migrationBuilder.CreateIndex(
@@ -134,13 +173,16 @@ namespace backend.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Alternative");
+                name: "Alternatives");
+
+            migrationBuilder.DropTable(
+                name: "ExamResults");
 
             migrationBuilder.DropTable(
                 name: "UserExams");
 
             migrationBuilder.DropTable(
-                name: "Question");
+                name: "Questions");
 
             migrationBuilder.DropTable(
                 name: "Exams");

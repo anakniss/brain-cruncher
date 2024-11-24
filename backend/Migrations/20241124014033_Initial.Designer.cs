@@ -11,7 +11,7 @@ using backend.Data;
 namespace backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241118224524_Initial")]
+    [Migration("20241124014033_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -26,11 +26,11 @@ namespace backend.Migrations
 
             modelBuilder.Entity("backend.Entities.Alternative", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AlternativeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AlternativeId"));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -39,66 +39,92 @@ namespace backend.Migrations
                     b.Property<bool>("IsCorrect")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("QuestionId")
+                    b.Property<int>("QuestionId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("AlternativeId");
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("Alternative");
+                    b.ToTable("Alternatives");
                 });
 
             modelBuilder.Entity("backend.Entities.Exam", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ExamId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExamId"));
 
-                    b.Property<int>("CreatedById")
+                    b.Property<int>("CreatedByUserId")
                         .HasColumnType("int");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ExamId");
 
-                    b.HasIndex("CreatedById");
+                    b.HasIndex("CreatedByUserId");
 
                     b.ToTable("Exams");
                 });
 
-            modelBuilder.Entity("backend.Entities.Question", b =>
+            modelBuilder.Entity("backend.Entities.ExamResult", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ExamResultId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExamResultId"));
 
-                    b.Property<int?>("ExamId")
+                    b.Property<int>("CorrectAnswers")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ExamId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ExamResultId");
+
+                    b.HasIndex("ExamId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ExamResults");
+                });
+
+            modelBuilder.Entity("backend.Entities.Question", b =>
+                {
+                    b.Property<int>("QuestionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuestionId"));
+
+                    b.Property<int>("ExamId")
                         .HasColumnType("int");
 
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("QuestionId");
 
                     b.HasIndex("ExamId");
 
-                    b.ToTable("Question");
+                    b.ToTable("Questions");
                 });
 
             modelBuilder.Entity("backend.Entities.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -115,7 +141,7 @@ namespace backend.Migrations
                     b.Property<int>("Role")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
                 });
@@ -137,27 +163,54 @@ namespace backend.Migrations
 
             modelBuilder.Entity("backend.Entities.Alternative", b =>
                 {
-                    b.HasOne("backend.Entities.Question", null)
-                        .WithMany("Options")
-                        .HasForeignKey("QuestionId");
+                    b.HasOne("backend.Entities.Question", "Question")
+                        .WithMany("Alternatives")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Question");
                 });
 
             modelBuilder.Entity("backend.Entities.Exam", b =>
                 {
                     b.HasOne("backend.Entities.User", "CreatedBy")
                         .WithMany()
-                        .HasForeignKey("CreatedById")
+                        .HasForeignKey("CreatedByUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("CreatedBy");
                 });
 
+            modelBuilder.Entity("backend.Entities.ExamResult", b =>
+                {
+                    b.HasOne("backend.Entities.Exam", "Exam")
+                        .WithMany()
+                        .HasForeignKey("ExamId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("backend.Entities.User", "Student")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Exam");
+
+                    b.Navigation("Student");
+                });
+
             modelBuilder.Entity("backend.Entities.Question", b =>
                 {
-                    b.HasOne("backend.Entities.Exam", null)
+                    b.HasOne("backend.Entities.Exam", "Exam")
                         .WithMany("Questions")
-                        .HasForeignKey("ExamId");
+                        .HasForeignKey("ExamId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Exam");
                 });
 
             modelBuilder.Entity("backend.Entities.UserExam", b =>
@@ -188,7 +241,7 @@ namespace backend.Migrations
 
             modelBuilder.Entity("backend.Entities.Question", b =>
                 {
-                    b.Navigation("Options");
+                    b.Navigation("Alternatives");
                 });
 
             modelBuilder.Entity("backend.Entities.User", b =>
