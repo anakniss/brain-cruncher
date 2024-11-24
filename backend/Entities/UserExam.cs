@@ -10,4 +10,5 @@ public class UserExam
     public int ExamId { get; set; }
     public User User { get; set; } = null!;
     public Exam Exam { get; set; } = null!;
+    public DateTime CreatedAt { get; set; }
 }

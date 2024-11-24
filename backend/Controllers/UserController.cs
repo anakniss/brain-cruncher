@@ -42,7 +42,7 @@ public class UserController : ControllerBase
 
     return Ok(new
     {
-      Message = "User created.",
+      Message = "User created successfully.",
       User = user
     });
   }
@@ -65,7 +65,7 @@ public class UserController : ControllerBase
     
     return Ok(new
     {
-      Message = "User updated.",
+      Message = "User updated successfully.",
       User = user
     });
   }
@@ -82,7 +82,7 @@ public class UserController : ControllerBase
     
     return Ok(new
     {
-      Message = "User deleted.",
+      Message = "User deleted successfully.",
       Id = id
     });
   }

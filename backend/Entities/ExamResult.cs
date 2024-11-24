@@ -9,8 +9,8 @@ public class ExamResult
     public int ExamId { get; set; }
     [ForeignKey("ExamId")]
     public Exam Exam { get; set; } = null!;
-    
     public int UserId { get; set; }
     [ForeignKey("UserId")]
     public User Student { get; set; } = null!;
+    public DateTime CreatedAt { get; set; }
 }
