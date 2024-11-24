@@ -1,6 +1,8 @@
+using backend.Data;
 using backend.Entities;
 using backend.Helpers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers;
 
@@ -8,21 +10,79 @@ namespace backend.Controllers;
 [ApiController]
 public class UserController : ControllerBase
 {
-  [HttpGet]
-  public async Task<IActionResult> GetAllUsers()
+  private readonly DataContext _context;
+
+  public UserController(DataContext context)
   {
-    var users = new List<User>
-    {
-      new User()
-      {
-        Id = 1,
-        Name = "Ana",
-        Email = "ackniss@gmail.com",
-        Password = "123",
-        Role = Role.Admin
-      }
-    };
+    _context = context;
+  }
+  
+  [HttpGet]
+  public async Task<ActionResult<List<User>>> GetAllUsers()
+  {
+    var users = await _context.Users.ToListAsync();
 
     return Ok(users);
+  }
+
+  [HttpGet("{id}")]
+  public async Task<ActionResult<User>> GetUser(int id)
+  {
+    var user = await _context.Users.FindAsync(id);
+    if (user is null)
+      return NotFound("User not found.");
+
+    return Ok(user);
+  }
+  
+  [HttpPost]
+  public async Task<ActionResult<object>> AddUser(User user)
+  {
+    _context.Users.Add(user);
+    await _context.SaveChangesAsync();
+
+    return Ok(new
+    {
+      Message = "User created.",
+      User = user
+    });
+  }
+
+  [HttpPut]
+  public async Task<ActionResult<List<User>>> UpdateUser(User user)
+  {
+    var dbUser = await _context.Users.FindAsync(user.Id);
+    if (dbUser is null)
+      return NotFound("User not found.");
+
+    dbUser.Name = user.Name;
+    dbUser.Email = user.Email;
+    dbUser.Password = user.Password;
+    dbUser.Role = user.Role;
+
+    await _context.SaveChangesAsync();
+    
+    return Ok(new
+    {
+      Message = "User updated.",
+      User = user
+    });
+  }
+  
+  [HttpDelete]
+  public async Task<ActionResult<List<User>>> DeleteUser(int id)
+  {
+    var dbUser = await _context.Users.FindAsync(id);
+    if (dbUser is null)
+      return NotFound("User not found.");
+
+    _context.Users.Remove(dbUser);
+    await _context.SaveChangesAsync();
+    
+    return Ok(new
+    {
+      Message = "User deleted.",
+      Id = id
+    });
   }
 }

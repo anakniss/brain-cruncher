@@ -16896,8 +16896,8 @@
     </schema>
     <schema id="5577" parent="5510" name="dbo">
       <Current>1</Current>
-      <IntrospectionTimestamp>2024-11-23.21:14:21.140</IntrospectionTimestamp>
-      <LastIntrospectionLocalTimestamp>2024-11-24.03:14:21</LastIntrospectionLocalTimestamp>
+      <IntrospectionTimestamp>2024-11-23.22:05:50.163</IntrospectionTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-11-24.04:05:50</LastIntrospectionLocalTimestamp>
       <ObjectId>1</ObjectId>
     </schema>
     <schema id="5578" parent="5510" name="guest">
@@ -16906,420 +16906,39 @@
     <schema id="5579" parent="5510" name="sys">
       <ObjectId>4</ObjectId>
     </schema>
-    <table id="5580" parent="5577" name="Alternatives">
-      <CreatedTimestamp>2024-11-23.21:14:13.823</CreatedTimestamp>
+    <table id="5580" parent="5577" name="__EFMigrationsHistory">
+      <CreatedTimestamp>2024-11-23.22:05:43.033</CreatedTimestamp>
       <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2024-11-23.21:14:13.830</ModifiedTimestamp>
-      <ObjectId>670625432</ObjectId>
-      <LobDataSpaceId>1</LobDataSpaceId>
-    </table>
-    <table id="5581" parent="5577" name="ExamResults">
-      <CreatedTimestamp>2024-11-23.21:14:13.810</CreatedTimestamp>
-      <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2024-11-23.21:14:13.837</ModifiedTimestamp>
-      <ObjectId>494624805</ObjectId>
+      <ModifiedTimestamp>2024-11-23.22:05:43.033</ModifiedTimestamp>
+      <ObjectId>1070626857</ObjectId>
       <LobDataSpaceId>0</LobDataSpaceId>
     </table>
-    <table id="5582" parent="5577" name="Exams">
-      <CreatedTimestamp>2024-11-23.21:14:13.807</CreatedTimestamp>
-      <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2024-11-23.21:14:13.837</ModifiedTimestamp>
-      <ObjectId>446624634</ObjectId>
-      <LobDataSpaceId>0</LobDataSpaceId>
-    </table>
-    <table id="5583" parent="5577" name="Questions">
-      <CreatedTimestamp>2024-11-23.21:14:13.817</CreatedTimestamp>
-      <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2024-11-23.21:14:13.837</ModifiedTimestamp>
-      <ObjectId>558625033</ObjectId>
-      <LobDataSpaceId>1</LobDataSpaceId>
-    </table>
-    <table id="5584" parent="5577" name="UserExams">
-      <CreatedTimestamp>2024-11-23.21:14:13.820</CreatedTimestamp>
-      <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2024-11-23.21:14:13.840</ModifiedTimestamp>
-      <ObjectId>606625204</ObjectId>
-      <LobDataSpaceId>0</LobDataSpaceId>
-    </table>
-    <table id="5585" parent="5577" name="Users">
-      <CreatedTimestamp>2024-11-23.21:14:13.807</CreatedTimestamp>
-      <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2024-11-23.21:14:13.823</ModifiedTimestamp>
-      <ObjectId>414624520</ObjectId>
-      <LobDataSpaceId>1</LobDataSpaceId>
-    </table>
-    <table id="5586" parent="5577" name="__EFMigrationsHistory">
-      <CreatedTimestamp>2024-11-23.21:14:13.710</CreatedTimestamp>
-      <DataRetentionPeriod>-1</DataRetentionPeriod>
-      <ModifiedTimestamp>2024-11-23.21:14:13.710</ModifiedTimestamp>
-      <ObjectId>382624406</ObjectId>
-      <LobDataSpaceId>0</LobDataSpaceId>
-    </table>
-    <column id="5587" parent="5580" name="Id">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="5588" parent="5580" name="Description">
-      <DasType>nvarchar(max)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="5589" parent="5580" name="IsCorrect">
-      <DasType>bit|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="5590" parent="5580" name="QuestionId">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <foreign-key id="5591" parent="5580" name="FK_Alternatives_Questions_QuestionId">
-      <ColNames>QuestionId</ColNames>
-      <CreatedTimestamp>2024-11-23.21:14:13.827</CreatedTimestamp>
-      <ModifiedTimestamp>2024-11-23.21:14:13.827</ModifiedTimestamp>
-      <ObjectId>702625546</ObjectId>
-      <OnDelete>cascade</OnDelete>
-      <RefColNames>Id</RefColNames>
-      <RefTableId>558625033</RefTableId>
-      <RefTableName>Questions</RefTableName>
-    </foreign-key>
-    <index id="5592" parent="5580" name="PK_Alternatives">
-      <Clustering>1</Clustering>
-      <ColNames>Id</ColNames>
-      <Position>1</Position>
-      <Unique>1</Unique>
-      <PartitionDataSpaceId>1</PartitionDataSpaceId>
-    </index>
-    <index id="5593" parent="5580" name="IX_Alternatives_QuestionId">
-      <ColNames>QuestionId</ColNames>
-      <Position>2</Position>
-      <PartitionDataSpaceId>1</PartitionDataSpaceId>
-    </index>
-    <key id="5594" parent="5580" name="PK_Alternatives">
-      <CreatedTimestamp>2024-11-23.21:14:13.827</CreatedTimestamp>
-      <ModifiedTimestamp>2024-11-23.21:14:13.827</ModifiedTimestamp>
-      <ObjectId>686625489</ObjectId>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PK_Alternatives</UnderlyingIndexName>
-    </key>
-    <column id="5595" parent="5581" name="Id">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="5596" parent="5581" name="CorrectAnswers">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="5597" parent="5581" name="ExamId">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="5598" parent="5581" name="UserId">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <foreign-key id="5599" parent="5581" name="FK_ExamResults_Exams_ExamId">
-      <ColNames>ExamId</ColNames>
-      <CreatedTimestamp>2024-11-23.21:14:13.813</CreatedTimestamp>
-      <ModifiedTimestamp>2024-11-23.21:14:13.813</ModifiedTimestamp>
-      <ObjectId>526624919</ObjectId>
-      <RefColNames>Id</RefColNames>
-      <RefTableId>446624634</RefTableId>
-      <RefTableName>Exams</RefTableName>
-    </foreign-key>
-    <foreign-key id="5600" parent="5581" name="FK_ExamResults_Users_UserId">
-      <ColNames>UserId</ColNames>
-      <CreatedTimestamp>2024-11-23.21:14:13.813</CreatedTimestamp>
-      <ModifiedTimestamp>2024-11-23.21:14:13.813</ModifiedTimestamp>
-      <ObjectId>542624976</ObjectId>
-      <RefColNames>Id</RefColNames>
-      <RefTableId>414624520</RefTableId>
-      <RefTableName>Users</RefTableName>
-    </foreign-key>
-    <index id="5601" parent="5581" name="PK_ExamResults">
-      <Clustering>1</Clustering>
-      <ColNames>Id</ColNames>
-      <Position>1</Position>
-      <Unique>1</Unique>
-      <PartitionDataSpaceId>1</PartitionDataSpaceId>
-    </index>
-    <index id="5602" parent="5581" name="IX_ExamResults_ExamId">
-      <ColNames>ExamId</ColNames>
-      <Position>2</Position>
-      <PartitionDataSpaceId>1</PartitionDataSpaceId>
-    </index>
-    <index id="5603" parent="5581" name="IX_ExamResults_UserId">
-      <ColNames>UserId</ColNames>
-      <Position>3</Position>
-      <PartitionDataSpaceId>1</PartitionDataSpaceId>
-    </index>
-    <key id="5604" parent="5581" name="PK_ExamResults">
-      <CreatedTimestamp>2024-11-23.21:14:13.813</CreatedTimestamp>
-      <ModifiedTimestamp>2024-11-23.21:14:13.813</ModifiedTimestamp>
-      <ObjectId>510624862</ObjectId>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PK_ExamResults</UnderlyingIndexName>
-    </key>
-    <column id="5605" parent="5582" name="Id">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="5606" parent="5582" name="Type">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="5607" parent="5582" name="CreatedById">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <foreign-key id="5608" parent="5582" name="FK_Exams_Users_CreatedById">
-      <ColNames>CreatedById</ColNames>
-      <CreatedTimestamp>2024-11-23.21:14:13.810</CreatedTimestamp>
-      <ModifiedTimestamp>2024-11-23.21:14:13.810</ModifiedTimestamp>
-      <ObjectId>478624748</ObjectId>
-      <OnDelete>cascade</OnDelete>
-      <RefColNames>Id</RefColNames>
-      <RefTableId>414624520</RefTableId>
-      <RefTableName>Users</RefTableName>
-    </foreign-key>
-    <index id="5609" parent="5582" name="PK_Exams">
-      <Clustering>1</Clustering>
-      <ColNames>Id</ColNames>
-      <Position>1</Position>
-      <Unique>1</Unique>
-      <PartitionDataSpaceId>1</PartitionDataSpaceId>
-    </index>
-    <index id="5610" parent="5582" name="IX_Exams_CreatedById">
-      <ColNames>CreatedById</ColNames>
-      <Position>2</Position>
-      <PartitionDataSpaceId>1</PartitionDataSpaceId>
-    </index>
-    <key id="5611" parent="5582" name="PK_Exams">
-      <CreatedTimestamp>2024-11-23.21:14:13.810</CreatedTimestamp>
-      <ModifiedTimestamp>2024-11-23.21:14:13.810</ModifiedTimestamp>
-      <ObjectId>462624691</ObjectId>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PK_Exams</UnderlyingIndexName>
-    </key>
-    <column id="5612" parent="5583" name="Id">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="5613" parent="5583" name="Text">
-      <DasType>nvarchar(max)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="5614" parent="5583" name="ExamId">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <foreign-key id="5615" parent="5583" name="FK_Questions_Exams_ExamId">
-      <ColNames>ExamId</ColNames>
-      <CreatedTimestamp>2024-11-23.21:14:13.817</CreatedTimestamp>
-      <ModifiedTimestamp>2024-11-23.21:14:13.817</ModifiedTimestamp>
-      <ObjectId>590625147</ObjectId>
-      <OnDelete>cascade</OnDelete>
-      <RefColNames>Id</RefColNames>
-      <RefTableId>446624634</RefTableId>
-      <RefTableName>Exams</RefTableName>
-    </foreign-key>
-    <index id="5616" parent="5583" name="PK_Questions">
-      <Clustering>1</Clustering>
-      <ColNames>Id</ColNames>
-      <Position>1</Position>
-      <Unique>1</Unique>
-      <PartitionDataSpaceId>1</PartitionDataSpaceId>
-    </index>
-    <index id="5617" parent="5583" name="IX_Questions_ExamId">
-      <ColNames>ExamId</ColNames>
-      <Position>2</Position>
-      <PartitionDataSpaceId>1</PartitionDataSpaceId>
-    </index>
-    <key id="5618" parent="5583" name="PK_Questions">
-      <CreatedTimestamp>2024-11-23.21:14:13.817</CreatedTimestamp>
-      <ModifiedTimestamp>2024-11-23.21:14:13.817</ModifiedTimestamp>
-      <ObjectId>574625090</ObjectId>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PK_Questions</UnderlyingIndexName>
-    </key>
-    <column id="5619" parent="5584" name="UserId">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="5620" parent="5584" name="ExamId">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <foreign-key id="5621" parent="5584" name="FK_UserExams_Users_UserId">
-      <ColNames>UserId</ColNames>
-      <CreatedTimestamp>2024-11-23.21:14:13.820</CreatedTimestamp>
-      <ModifiedTimestamp>2024-11-23.21:14:13.820</ModifiedTimestamp>
-      <ObjectId>654625375</ObjectId>
-      <RefColNames>Id</RefColNames>
-      <RefTableId>414624520</RefTableId>
-      <RefTableName>Users</RefTableName>
-    </foreign-key>
-    <foreign-key id="5622" parent="5584" name="FK_UserExams_Exams_ExamId">
-      <ColNames>ExamId</ColNames>
-      <CreatedTimestamp>2024-11-23.21:14:13.820</CreatedTimestamp>
-      <ModifiedTimestamp>2024-11-23.21:14:13.820</ModifiedTimestamp>
-      <ObjectId>638625318</ObjectId>
-      <RefColNames>Id</RefColNames>
-      <RefTableId>446624634</RefTableId>
-      <RefTableName>Exams</RefTableName>
-    </foreign-key>
-    <index id="5623" parent="5584" name="PK_UserExams">
-      <Clustering>1</Clustering>
-      <ColNames>UserId
-ExamId</ColNames>
-      <Position>1</Position>
-      <Unique>1</Unique>
-      <PartitionDataSpaceId>1</PartitionDataSpaceId>
-    </index>
-    <index id="5624" parent="5584" name="IX_UserExams_ExamId">
-      <ColNames>ExamId</ColNames>
-      <Position>2</Position>
-      <PartitionDataSpaceId>1</PartitionDataSpaceId>
-    </index>
-    <key id="5625" parent="5584" name="PK_UserExams">
-      <CreatedTimestamp>2024-11-23.21:14:13.820</CreatedTimestamp>
-      <ModifiedTimestamp>2024-11-23.21:14:13.820</ModifiedTimestamp>
-      <ObjectId>622625261</ObjectId>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PK_UserExams</UnderlyingIndexName>
-    </key>
-    <column id="5626" parent="5585" name="Id">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="5627" parent="5585" name="Name">
-      <DasType>nvarchar(max)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="5628" parent="5585" name="Email">
-      <DasType>nvarchar(max)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="5629" parent="5585" name="Password">
-      <DasType>nvarchar(max)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <column id="5630" parent="5585" name="Role">
-      <DasType>int|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-    </column>
-    <index id="5631" parent="5585" name="PK_Users">
-      <Clustering>1</Clustering>
-      <ColNames>Id</ColNames>
-      <Position>1</Position>
-      <Unique>1</Unique>
-      <PartitionDataSpaceId>1</PartitionDataSpaceId>
-    </index>
-    <key id="5632" parent="5585" name="PK_Users">
-      <CreatedTimestamp>2024-11-23.21:14:13.807</CreatedTimestamp>
-      <ModifiedTimestamp>2024-11-23.21:14:13.807</ModifiedTimestamp>
-      <ObjectId>430624577</ObjectId>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PK_Users</UnderlyingIndexName>
-    </key>
-    <column id="5633" parent="5586" name="MigrationId">
+    <column id="5581" parent="5580" name="MigrationId">
       <DasType>nvarchar(150 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="5634" parent="5586" name="ProductVersion">
+    <column id="5582" parent="5580" name="ProductVersion">
       <DasType>nvarchar(32 char)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <index id="5635" parent="5586" name="PK___EFMigrationsHistory">
+    <index id="5583" parent="5580" name="PK___EFMigrationsHistory">
       <Clustering>1</Clustering>
       <ColNames>MigrationId</ColNames>
       <Position>1</Position>
       <Unique>1</Unique>
       <PartitionDataSpaceId>1</PartitionDataSpaceId>
     </index>
-    <key id="5636" parent="5586" name="PK___EFMigrationsHistory">
-      <CreatedTimestamp>2024-11-23.21:14:13.710</CreatedTimestamp>
-      <ModifiedTimestamp>2024-11-23.21:14:13.710</ModifiedTimestamp>
-      <ObjectId>398624463</ObjectId>
+    <key id="5584" parent="5580" name="PK___EFMigrationsHistory">
+      <CreatedTimestamp>2024-11-23.22:05:43.033</CreatedTimestamp>
+      <ModifiedTimestamp>2024-11-23.22:05:43.033</ModifiedTimestamp>
+      <ObjectId>1086626914</ObjectId>
       <Primary>1</Primary>
       <UnderlyingIndexName>PK___EFMigrationsHistory</UnderlyingIndexName>
     </key>
-    <partition id="5637" parent="5592">
-      <ObjectId>72057594050379776</ObjectId>
-      <Position>1</Position>
-    </partition>
-    <partition id="5638" parent="5593">
-      <ObjectId>72057594050445312</ObjectId>
-      <Position>1</Position>
-    </partition>
-    <partition id="5639" parent="5601">
-      <ObjectId>72057594050183168</ObjectId>
-      <Position>1</Position>
-    </partition>
-    <partition id="5640" parent="5602">
-      <ObjectId>72057594050510848</ObjectId>
-      <Position>1</Position>
-    </partition>
-    <partition id="5641" parent="5603">
-      <ObjectId>72057594050576384</ObjectId>
-      <Position>1</Position>
-    </partition>
-    <partition id="5642" parent="5609">
-      <ObjectId>72057594050117632</ObjectId>
-      <Position>1</Position>
-    </partition>
-    <partition id="5643" parent="5610">
-      <ObjectId>72057594050641920</ObjectId>
-      <Position>1</Position>
-    </partition>
-    <partition id="5644" parent="5616">
-      <ObjectId>72057594050248704</ObjectId>
-      <Position>1</Position>
-    </partition>
-    <partition id="5645" parent="5617">
-      <ObjectId>72057594050707456</ObjectId>
-      <Position>1</Position>
-    </partition>
-    <partition id="5646" parent="5623">
-      <ObjectId>72057594050314240</ObjectId>
-      <Position>1</Position>
-    </partition>
-    <partition id="5647" parent="5624">
-      <ObjectId>72057594050772992</ObjectId>
-      <Position>1</Position>
-    </partition>
-    <partition id="5648" parent="5631">
-      <ObjectId>72057594050052096</ObjectId>
-      <Position>1</Position>
-    </partition>
-    <partition id="5649" parent="5635">
-      <ObjectId>72057594049986560</ObjectId>
+    <partition id="5585" parent="5583">
+      <ObjectId>72057594051690496</ObjectId>
       <Position>1</Position>
     </partition>
   </database-model>

@@ -21,18 +21,18 @@ public class DataContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<UserExam>()
-            .HasKey(ue => new { ue.UserId, ue.ExamId }); // Define a chave composta
-
+            .HasKey(ue => new { ue.UserId, ue.ExamId });
+        
         modelBuilder.Entity<UserExam>()
-            .HasOne(ue => ue.User)
-            .WithMany(u => u.UserExams)
-            .HasForeignKey(ue => ue.UserId)
+            .HasOne(er=> er.Exam)
+            .WithMany()
+            .HasForeignKey(er => er.ExamId)
             .OnDelete(DeleteBehavior.Restrict);
-
+        
         modelBuilder.Entity<UserExam>()
-            .HasOne(ue => ue.Exam)
-            .WithMany(e => e.UserExams)
-            .HasForeignKey(ue => ue.ExamId)
+            .HasOne(er=> er.User)
+            .WithMany()
+            .HasForeignKey(er => er.UserId)
             .OnDelete(DeleteBehavior.Restrict);
         
         modelBuilder.Entity<ExamResult>()

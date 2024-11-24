@@ -8,5 +8,4 @@ public class Exam
     public ExamType Type { get; set; }
     public List<Question> Questions { get; set; }
     public User CreatedBy { get; set; }
-    public List<UserExam> UserExams { get; } = [];
 }

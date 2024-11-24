@@ -13,12 +13,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.backend.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.backend.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/DataContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/DataContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Alternative.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Alternative.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/ExamResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/ExamResult.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Entities/Question.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Question.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20241118224524_Initial.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20241118224524_Initial.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/DataContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/Exam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/Exam.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Entities/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Entities/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/DataContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/DataContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/backend.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/backend.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/backend.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/Debug/net9.0/backend.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net9.0/backend.exe" afterDir="false" />
@@ -126,7 +123,8 @@
       <workItem from="1732054331633" duration="1991000" />
       <workItem from="1732409269399" duration="4451000" />
       <workItem from="1732413801926" duration="1669000" />
-      <workItem from="1732417407781" duration="638000" />
+      <workItem from="1732417407781" duration="3836000" />
+      <workItem from="1732421285505" duration="1691000" />
     </task>
     <servers />
   </component>
