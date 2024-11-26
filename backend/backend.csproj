@@ -74,4 +74,8 @@
     <Compile Remove="Migrations\20241125233102_Initial.Designer.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="backend.http" />
+  </ItemGroup>
+
 </Project>
