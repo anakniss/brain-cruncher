@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { useAuthStore } from '../stores/mockAuth';  // mock auth for testing
+import { useAuthStore } from '../stores/mockAuth';
 import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
 import Profile from '../views/Profile.vue';
@@ -7,49 +7,49 @@ import CreateQuiz from '../views/CreateQuiz.vue';
 import PlayQuiz from '../views/PlayQuiz.vue';
 import Ranking from '../views/Ranking.vue';
 import Reports from '../views/Reports.vue';
-import type { Role } from '../types';
+import { Role } from '../types';
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
       path: '/',
-      component: Home,
-      name: 'home'
+      name: 'home',
+      component: Home
     },
     {
       path: '/login',
-      component: Login,
-      name: 'login'
+      name: 'login',
+      component: Login
     },
     {
       path: '/profile',
-      component: Profile,
       name: 'profile',
+      component: Profile,
       meta: { requiresAuth: true }
     },
     {
       path: '/create-quiz',
-      component: CreateQuiz,
       name: 'create-quiz',
-      meta: { requiresAuth: true, roles: ['professor'] }
+      component: CreateQuiz,
+      meta: { requiresAuth: true, roles: [Role.Professor] }
     },
     {
       path: '/play',
-      component: PlayQuiz,
       name: 'play-quiz',
-      meta: { requiresAuth: true, roles: ['student'] }
+      component: PlayQuiz,
+      meta: { requiresAuth: true, roles: [Role.Student] }
     },
     {
       path: '/ranking',
-      component: Ranking,
       name: 'ranking',
+      component: Ranking,
       meta: { requiresAuth: true }
     },
     {
       path: '/reports',
-      component: Reports,
       name: 'reports',
+      component: Reports,
       meta: { requiresAuth: true }
     }
   ]
@@ -58,12 +58,12 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore();
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-  const requiredRoles = to.meta.roles as Role[] | undefined; 
-  if (requiresAuth && !authStore.currentUser) {
-    next('/login'); 
-  } else if (requiredRoles && Array.isArray(requiredRoles)) {
+  const requiredRoles = to.meta.roles as Role[] | undefined;
 
-    if (!requiredRoles.includes(authStore.currentUser?.role!)) {
+  if (requiresAuth && !authStore.currentUser) {
+    next('/login');
+  } else if (requiredRoles && authStore.currentUser) {
+    if (!requiredRoles.includes(authStore.currentUser.role)) {
       next('/');
     } else {
       next();
@@ -72,8 +72,5 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
-
-
-
 
 export default router;

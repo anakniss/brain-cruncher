@@ -2,6 +2,7 @@
 import { useAuthStore } from '../stores/mockAuth';
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
+import { Role } from '../types';
 
 const authStore = useAuthStore();
 const router = useRouter();
@@ -20,10 +21,10 @@ const navItems = computed(() => {
     items.push({ name: 'Ranking', path: '/ranking' });
     items.push({ name: 'Reports', path: '/reports' });
 
-    if (userRole.value === 2) {
+    if (userRole.value === Role.Student) {
       items.push({ name: 'Play', path: '/play' });
     }
-    if (userRole.value === 1) {
+    if (userRole.value === Role.Professor) {
       items.push({ name: 'Create Quiz', path: '/create-quiz' });
     }
   } else {
@@ -39,6 +40,7 @@ const handleSignOut = async () => {
 };
 </script>
 
+<!-- Template remains unchanged -->
 <template>
   <nav class="bg-white shadow-lg">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

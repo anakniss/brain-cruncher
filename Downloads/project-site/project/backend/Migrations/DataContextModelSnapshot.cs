@@ -187,9 +187,7 @@ namespace backend.Migrations
                 {
                     b.HasOne("backend.Entities.Question", "Question")
                         .WithMany()
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("QuestionId");
 
                     b.Navigation("Question");
                 });
@@ -198,9 +196,7 @@ namespace backend.Migrations
                 {
                     b.HasOne("backend.Entities.User", "CreatedBy")
                         .WithMany()
-                        .HasForeignKey("CreatedById")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CreatedById");
 
                     b.Navigation("CreatedBy");
                 });
@@ -228,9 +224,7 @@ namespace backend.Migrations
                 {
                     b.HasOne("backend.Entities.Exam", "Exam")
                         .WithMany()
-                        .HasForeignKey("ExamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ExamId");
 
                     b.Navigation("Exam");
                 });

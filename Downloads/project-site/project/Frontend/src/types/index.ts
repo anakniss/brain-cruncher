@@ -85,4 +85,3 @@ export interface Users {
   password: string;
   role: Role;
 }
-

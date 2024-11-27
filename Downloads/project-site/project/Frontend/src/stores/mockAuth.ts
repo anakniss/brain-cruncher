@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import type { Users } from '../types';
+import { Role } from '../types';
 
 export const useAuthStore = defineStore('auth', () => {
   const currentUser = ref<Users>({
@@ -10,7 +11,7 @@ export const useAuthStore = defineStore('auth', () => {
     lastName: 'Doe',
     username: 'professor',
     password: 'password123',
-    role: 1
+    role: Role.Professor
   });
   
   const loading = ref(false);
@@ -21,13 +22,13 @@ export const useAuthStore = defineStore('auth', () => {
     return Promise.resolve();
   }
 
-  async function register(email: string, password: string, name: string, role: Users['role']) {
+  async function register(firstName: string, lastName: string, username: string, email: string, password: string, role: Role) {
     // Mock implementation
     return Promise.resolve();
   }
 
   async function signOut() {
-    // Mock implementation
+    currentUser.value = null as unknown as Users;
     return Promise.resolve();
   }
 

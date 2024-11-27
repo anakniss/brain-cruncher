@@ -14,11 +14,11 @@ public class UserController : ControllerBase
 {
   private readonly DataContext _context;
   private readonly Authenticator _passwordHasher;
-  public UserController(DataContext context)
-  {
+public UserController(DataContext context, Authenticator passwordHasher)
+{
     _context = context;
-    _passwordHasher = new Authenticator(new PasswordHasher<object>());
-  }
+    _passwordHasher = passwordHasher;
+}
   
   [HttpGet("GetAllUsers")]
   public async Task<ActionResult<List<User>>> GetAllUsers()

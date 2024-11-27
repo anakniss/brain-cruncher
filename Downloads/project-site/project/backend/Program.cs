@@ -1,14 +1,28 @@
 using backend.Data;
 using Microsoft.EntityFrameworkCore;
 using backend.Auth;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") // Change this to your frontend URL
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<Authenticator>();//new instance of Authenticator for each request
+
+builder.Services.AddScoped<PasswordHasher<object>>();
+builder.Services.AddScoped<Authenticator>();
+
+
 
 builder.Services.AddDbContext<DataContext>(options =>
 {
@@ -16,6 +30,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 });
 
 var app = builder.Build();
+
+app.UseCors("AllowFrontend");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
