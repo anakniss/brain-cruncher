@@ -97,9 +97,8 @@ public UserController(DataContext context, Authenticator passwordHasher)
     });
   }
 
-  //made login method
   [HttpPost("Login")]
-  public async Task<ActionResult<object>> Login([FromBody] User loginRequest)
+  public async Task<ActionResult<object>> Login([FromBody] LoginRequest loginRequest)
   {
       var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == loginRequest.Email);
       if (user == null)
@@ -123,4 +122,5 @@ public UserController(DataContext context, Authenticator passwordHasher)
           }
       });
   }
+
 }

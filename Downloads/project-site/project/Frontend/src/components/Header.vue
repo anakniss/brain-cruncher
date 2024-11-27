@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useAuthStore } from '../stores/mockAuth';
+import { useAuthStore } from '../stores/auth';
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { Role } from '../types';
@@ -21,11 +21,18 @@ const navItems = computed(() => {
     items.push({ name: 'Ranking', path: '/ranking' });
     items.push({ name: 'Reports', path: '/reports' });
 
+    // Allow both professors and admins to create quizzes
+    if (userRole.value === Role.Professor || userRole.value === Role.Admin) {
+      items.push({ name: 'Create Quiz', path: '/create-quiz' });
+    }
+
+    // Only admins can create users
+    if (userRole.value === Role.Admin) {
+      items.push({ name: 'Create User', path: '/create-user' });
+    }
+
     if (userRole.value === Role.Student) {
       items.push({ name: 'Play', path: '/play' });
-    }
-    if (userRole.value === Role.Professor) {
-      items.push({ name: 'Create Quiz', path: '/create-quiz' });
     }
   } else {
     items.push({ name: 'Login', path: '/login' });
@@ -40,7 +47,6 @@ const handleSignOut = async () => {
 };
 </script>
 
-<!-- Template remains unchanged -->
 <template>
   <nav class="bg-white shadow-lg">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

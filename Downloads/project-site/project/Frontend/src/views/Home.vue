@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useAuthStore } from '../stores/mockAuth';
+import { useAuthStore } from '../stores/auth';
 import { computed } from 'vue';
 import { Role } from '../types';
 import { useRouter } from 'vue-router';

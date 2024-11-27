@@ -5,7 +5,7 @@ import router from '../src/router';
 import './style.css';
 
 //using mock auth to test
-import { useAuthStore } from './stores/mockAuth';
+import { useAuthStore } from './stores/auth';
 
 const app = createApp(App);
 const pinia = createPinia();

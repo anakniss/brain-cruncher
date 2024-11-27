@@ -1,163 +1,76 @@
-//
-/*
-todo 
-- change from http to https later, maybe
-- maybe delete method if we don't wish to create new users
-export interface Users {
-  id: number;
-  firstName: string;
-  lastName: string;
-  username: string;
-  email: string;
-  password: string;
-  role: 'admin' | 'professor' | 'student';// 0 , 1 , 2
-}
-*/
-
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import type { Users } from '../types';
-import http from 'http'; // Use the built-in http module
-import type { Role } from '../types';
-
 
 export const useAuthStore = defineStore('auth', () => {
   const currentUser = ref<Users | null>(null);
   const loading = ref(false);
   const error = ref<string | null>(null);
 
-  //all checks are done in the backend
-  async function register(id : number, firstName: string, lastName: string, username: string, email: string, password: string, role: Role) {
-    try {
-      loading.value = true;
-      error.value = null;
-      
-      const userData = JSON.stringify({
-        id,
-        firstName,
-        lastName,
-        username,
-        email,
-        password,
-        role
-      });
-      // for options check ../backend/Properties/launchSettings.json && ../backend/Controllers
-      const options = {
-        hostname: 'localhost',
-        port: 5086,
-        path: '/api/Users',
-        method: 'POST', 
-        headers: {
-          'Content-Type': 'application/json',
-          'Content-Length': Buffer.byteLength(userData)
-        },
-      };
-      const req = http.request(options, (res) => {
-        let responseData = '';
-        res.on('data', (chunk) => {
-          responseData += chunk;
-        });
-        res.on('end', () => {
-          if (res.statusCode === 200) {
-            const responseJson = JSON.parse(responseData);
-            currentUser.value = {
-              id: responseJson.user.id,
-              firstName,
-              lastName,
-              username,
-              email,
-              password,
-              role
-            };
-          } else {
-            error.value = `Error: ${res.statusCode} - ${responseData}`;
-            throw new Error(`Error: ${res.statusCode}`);
-          }
-        });
-      });
-      
-      req.on('error', (e) => {
-        error.value = e.message;
-        throw e;
-      });
-      req.write(userData);
-      req.end();
-
-    } catch (e: any) {
-      error.value = e.message;
-      throw e;
-    }
-    finally {
-      loading.value = false;
-    }
-  }
-
-
   async function login(email: string, password: string) {
-    try
-    {
+    try {
+      console.log('Login attempt:', { email });
       loading.value = true;
       error.value = null;
-      
-      const loginData = JSON.stringify({
-        email,
-        password
-      });
-      //sending post request to backend, to check if user login info is valid
-      const options = {
-        hostname: 'localhost',
-        port: 5086,
-        path: '/api/Users',
-        method: 'POST', 
+     
+      const response = await fetch('http://localhost:5086/api/User/login', {
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Content-Length': Buffer.byteLength(loginData)
         },
+        body: JSON.stringify({
+          email,
+          password
+        })
+      });
+
+      console.log('Response status:', response.status);
+      const data = await response.json();
+      console.log('Response data:', data);
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Login failed');
+      }
+
+      // Update the current user with the response data
+      currentUser.value = {
+        id: data.user.id,
+        firstName: data.user.firstName,
+        lastName: data.user.lastName,
+        username: data.user.username,
+        email: data.user.email,
+        password: '', //we dont want to store the password on the client
+        role: data.user.role
       };
-      const req = http.request(options, (res) => {
-        let responseData = '';
-        res.on('data', (chunk) => {
-          responseData += chunk;
-        });
-        res.on('end', () => {
-          if (res.statusCode === 200) {
-            const responseJson = JSON.parse(responseData);
-            currentUser.value = responseJson.User;
-          } else {
-            error.value = `Error: ${res.statusCode} - ${responseData}`;
-          }
-        });
-      });
-  
-      req.on('error', (e) => {
-        error.value = e.message;
-      });
-  
-      req.write(loginData);
-      req.end();
-      
-    } catch (e: any) {
-      error.value = e.message;
+
+      console.log('Login successful:', currentUser.value);
+      return currentUser.value;
+    } catch (e) {
+      console.error('Login error:', e);
+      error.value = e instanceof Error ? e.message : 'An error occurred during login';
+      throw e;
     } finally {
       loading.value = false;
     }
-}
-
-async function signOut() {
-  try {
-    currentUser.value = null; // tries to set the current user to null to sign out
-    error.value = null;
-  } catch (e: any) {
-    error.value = e.message;
   }
-}
 
+  async function signOut() {
+    try {
+      console.log('Signing out user:', currentUser.value?.username);
+      currentUser.value = null;
+      error.value = null;
+      console.log('Sign out successful');
+    } catch (e) {
+      console.error('Sign out error:', e);
+      error.value = e instanceof Error ? e.message : 'An error occurred during sign out';
+      throw e;
+    }
+  }
 
   return {
     currentUser,
     loading,
     error,
-    register,
     login,
     signOut
   };

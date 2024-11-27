@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useAuthStore } from '../stores/mockAuth';
+import { ref, onMounted } from 'vue';
+import { useAuthStore } from '../stores/auth';
+import { useRouter } from 'vue-router';
 import type { Questions, Alternatives, Exams } from '../types';
-import { ExamType } from '../types';
+import { ExamType, Role } from '../types';
 
 interface QuizForm {
   exam: Omit<Exams, 'id' | 'createdAt'>;
@@ -12,8 +13,17 @@ interface QuizForm {
 }
 
 const authStore = useAuthStore();
+const router = useRouter();
 const REQUIRED_QUESTIONS = 2;
 const ALTERNATIVES_PER_QUESTION = 3;
+
+// Check if user is admin or professor
+onMounted(() => {
+  const userRole = authStore.currentUser?.role;
+  if (!authStore.currentUser || (userRole !== Role.Admin && userRole !== Role.Professor)) {
+    router.push('/');
+  }
+});
 
 const quizForm = ref<QuizForm>({
   exam: {
@@ -88,7 +98,7 @@ const handleSubmit = async () => {
 
     // Update each question's examID with the created exam's ID
     quizForm.value.questions.forEach(question => {
-      question.examID = exam.id;  // Ensure all questions have the correct examID
+      question.examID = exam.id;
     });
 
     // Create questions and alternatives
@@ -101,7 +111,7 @@ const handleSubmit = async () => {
         },
         body: JSON.stringify({
           text: question.text,
-          examID: question.examID,  // Make sure we use the updated examID
+          examID: question.examID,
           createdAt: new Date().toISOString()
         })
       });
@@ -160,7 +170,6 @@ const handleSubmit = async () => {
     alert(error instanceof Error ? error.message : 'Failed to create quiz');
   }
 };
-
 </script>
 
 <template>
