@@ -16,7 +16,7 @@ public class QuestionController : ControllerBase
         _context = context;
     }
   
-    [HttpGet]
+    [HttpGet("GetAllQuestions")]
     public async Task<ActionResult<IEnumerable<Question>>> GetAllQuestions()
     {
         var questions = await _context.Questions.ToListAsync();
