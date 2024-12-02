@@ -114,6 +114,8 @@ Certifique-se de que o banco de dados especificado na string de conexão existe.
     - `views/`: Páginas do aplicativo.
     - `store/`: Gerenciamento de estado Vuex.
     - `router/`: Configuração de rotas.
+    - `types/`: Interfaces genéricas.
+    - `assets/`: Assets do projeto.
 
 ---
 
