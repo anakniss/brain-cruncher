@@ -39,7 +39,6 @@ const fetchQuizQuestions = async () => {
         loading.value = false;
         console.log(data);
         const questionsWithAlternatives = await Promise.all(
-            //iterate over every question by their id, and fetch the alternatives for each question
             data.map(async (question: QuestionPlayInterface) => {
                 console.log("Fetching alternatives for question ID:", question.id);
                 const alternativesResponse = await fetch(`http://localhost:5086/api/Alternative/GetAlternativeByQuestionId/${question.id}`);
