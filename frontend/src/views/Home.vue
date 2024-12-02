@@ -34,7 +34,6 @@ const navigateTo = (path: string) => {
           }}
         </p>
 
-        <!-- Quick Actions -->
         <div class="mt-8">
           <h2 class="text-lg text-black font-semibold mb-4">Quick Actions</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
