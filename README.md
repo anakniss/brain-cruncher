@@ -103,7 +103,7 @@ Certifique-se de que o banco de dados especificado na string de conexão existe.
 ### **Backend**
 
 - `Controllers/`: Define os endpoints RESTful.
-- `Models/`: Define os modelos de dados.
+- `Entities/`: Define os modelos de dados.
 - `Data/`: Configuração do banco de dados e contextos.
 - `Migrations/`: Arquivos gerados pelo Entity Framework para controle de versão do banco de dados.
 
