@@ -17,7 +17,7 @@ const router = useRouter();
 const REQUIRED_QUESTIONS = 2;
 const ALTERNATIVES_PER_QUESTION = 3;
 
-// Check if user is admin or professor
+
 onMounted(() => {
   const userRole = authStore.currentUser?.role;
   if (!authStore.currentUser || (userRole !== Role.Admin && userRole !== Role.Professor)) {
@@ -49,7 +49,7 @@ const setCorrectAnswer = (questionIndex: number, alternativeIndex: number) => {
 
 const handleSubmit = async () => {
   try {
-    // Validate form
+    
     if (!quizForm.value.exam.title.trim()) {
       throw new Error('Quiz title is required');
     }
@@ -65,8 +65,6 @@ const handleSubmit = async () => {
       throw new Error('All alternatives must have text and each question must have one correct answer');
     }
 
-    // Log all questions and alternatives to the console before sending
-    console.log('Quiz Form Data:', quizForm.value);
     quizForm.value.questions.forEach((question, questionIndex) => {
       console.log(`Question ${questionIndex + 1}: ${question.text}`);
       question.alternatives.forEach((alt, altIndex) => {
@@ -74,7 +72,7 @@ const handleSubmit = async () => {
       });
     });
 
-    // Create exam
+    
     const examResponse = await fetch('http://localhost:5086/api/Exam', {
       method: 'POST',
       headers: {
@@ -96,14 +94,14 @@ const handleSubmit = async () => {
 
     const exam = await examResponse.json();
 
-    // Update each question's examID with the created exam's ID
+    
     quizForm.value.questions.forEach(question => {
       question.examID = exam.id;
     });
 
-    // Create questions and alternatives
+    
     for (const question of quizForm.value.questions) {
-      // Create question
+      
       const questionResponse = await fetch('http://localhost:5086/api/Question', {
         method: 'POST',
         headers: {
@@ -123,9 +121,7 @@ const handleSubmit = async () => {
       }
 
       const createdQuestion = await questionResponse.json();
-      console.log('Created Question:', createdQuestion);
 
-      // Create alternatives for the question
       for (const alternative of question.alternatives) {
         const alternativeResponse = await fetch('http://localhost:5086/api/Alternative', {
           method: 'POST',
@@ -149,7 +145,7 @@ const handleSubmit = async () => {
 
     alert('Quiz created successfully!');
     
-    // Reset form
+    
     quizForm.value = {
       exam: {
         title: '',
