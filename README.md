@@ -66,32 +66,23 @@ Certifique-se de que o banco de dados especificado na string de conexão existe.
 1. **Clone o repositório:**
     
     ```bash
-    bash
-    Copy code
     git clone <url-do-repositorio>
     cd frontend
-    
     ```
     
 2. **Instale as dependências:**
     
     ```bash
-    bash
-    Copy code
     npm install
     # ou
     yarn install
-    
     ```
     
 3. **Configuração da URL do Backend:**
     - Localize o arquivo de configuração (ex.: `.env` ou `src/config.ts`) e configure a URL base da API:
         
         ```jsx
-        javascript
-        Copy code
         export const API_BASE_URL = 'http://localhost:5000';
-        
         ```
         
 4. **Rodar o servidor do frontend:**
@@ -101,7 +92,6 @@ Certifique-se de que o banco de dados especificado na string de conexão existe.
         npm run serve
         # ou
         yarn serve
-        
         ```
         
     - A aplicação estará disponível em `http://localhost:8080`.
