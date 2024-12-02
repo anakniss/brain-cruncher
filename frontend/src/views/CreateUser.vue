@@ -7,7 +7,7 @@ import { Role } from '../types';
 const authStore = useAuthStore();
 const router = useRouter();
 
-// Form data
+
 const formData = ref({
   id: 0,
   firstName: '',
@@ -20,16 +20,16 @@ const formData = ref({
 
 const error = ref<string | null>(null);
 const success = ref<string | null>(null);
-const passwordError = ref<string | null>(null); // Password validation error
+const passwordError = ref<string | null>(null); 
 
-// Check if user is admin
+
 onMounted(() => {
   if (!authStore.currentUser || authStore.currentUser.role !== Role.Admin) {
     router.push('/');
   }
 });
 
-// Password validation
+
 const validatePassword = () => {
   const senha = formData.value.password;
   const isValida = /^[a-zA-Z0-9]*$/.test(senha);
@@ -48,13 +48,13 @@ const handleSubmit = async () => {
     error.value = null;
     success.value = null;
 
-    // Validate password before submission
+    
     validatePassword();
     if (passwordError.value) {
       throw new Error(passwordError.value);
     }
 
-    // Ensure all fields are filled
+    
     if (
       !formData.value.firstName ||
       !formData.value.lastName ||
@@ -80,7 +80,7 @@ const handleSubmit = async () => {
 
     success.value = 'User created successfully!';
 
-    // Reset form
+   
     formData.value = {
       id: 0,
       firstName: '',
