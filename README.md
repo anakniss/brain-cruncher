@@ -1,27 +1,15 @@
-# Documentação do Projeto
+# observações;
+- Nessa versão faz-se o uso de PostgreSQL com auxilio de Npgsql.
+- Frontend WIP.
+- Para mudar a String de conexão acessar ../backend/appsettings.json .
+- Recomendação: caso esteja usando vscode instalar a extenção Vue-Official.
+- Comandos:  npm run build ; npm run dev; 
+- Pode-se também apertar o botão debug em ../Frontend/package.json .
+# Mudanças Principais:
+- Mudança completa do Frontend, implementando agora O framework Vue/vite, e uso de TypeScript.
+- Adicionado parcialmente uma lógica para Autenticação de usuário(com hash em server-side).
+- Mudança no UserController para poder implementar a autenticação.
+- Mudança no Program.cs ("UseNpgsql" e AddScoped<Authenticator>()).
 
-Este projeto utiliza **C# .NET 9.0** para o backend (com suporte a Entity Framework Core e migrations) e **Vue.js** para o frontend.
 
----
 
-## **Requisitos**
-
-Certifique-se de ter os seguintes softwares instalados:
-
-- **Backend:**
-  - [.NET SDK 9.0+](https://dotnet.microsoft.com/download)
-  - [Entity Framework Core CLI](https://learn.microsoft.com/ef/core/cli/dotnet)
-  - Banco de dados compatível (SQL Server, PostgreSQL, MySQL, etc.)
-
-- **Frontend:**
-  - [Node.js 16+](https://nodejs.org/)
-  - [npm 8+](https://docs.npmjs.com/)
-
----
-
-## **Configuração do Backend**
-
-### **1. Clone o Repositório**
-```bash
-git clone <url-do-repositorio>
-cd <pasta-do-projeto-backend>

@@ -117,4 +117,65 @@ public class AlternativeController : ControllerBase
             Id = id
         });
     }
+
+    [HttpGet("GetAlternativeByQuestionId/{id}")]
+    public async Task<IActionResult> GetAlternativeByQuestionId(int id)
+    {
+        var dbQuestion = await _context.Questions.FindAsync(id);
+        if (dbQuestion is null)
+            return NotFound("Question not found.");
+  
+        var alternatives = await _context.Alternatives
+            .Where(e => e.QuestionId == id)
+            .Select(e => new
+            {
+                e.Id,
+                e.Description,
+                e.IsCorrect,
+                e.QuestionId
+            })
+            .ToListAsync();
+
+        if (alternatives == null)
+        {
+            return NotFound("Alternative not found.");
+        }
+
+        return Ok(alternatives);
+    }
+
+    [HttpGet("GetAllExamResultPerUser")]
+    public async Task<IActionResult> GetAllExamResultPerUser(){
+        var results = new List<object>();
+        var allUsersId = await _context.ExamResults.Select(e => e.UserId).Distinct().ToListAsync();
+        foreach (var userId in allUsersId)
+        {
+            var correctAnswersCount = await _context.ExamResults
+                .Where(e => (e.UserId == userId))
+                .Select(e => e.CorrectAnswers)
+                .SumAsync();
+            results.Add(new
+            {
+                UserId = userId,
+                CorrectAnswers = correctAnswersCount
+            });
+        }
+        return Ok(results);
+    }
+
+    [HttpGet("GetTotalCorrectAnswersForUser/{id}")]
+    public async Task<IActionResult> GetTotalCorrectAnswersForUser(int id)
+    {
+        var userExists = await _context.ExamResults.AnyAsync(u => u.UserId == id);
+        if (!userExists)
+            return NotFound("User not found.");
+        var correctAnswersCount = await _context.ExamResults
+            .Where(e => (e.UserId == id))
+            .Select(e => e.CorrectAnswers)
+            .SumAsync();
+        return Ok(new
+        {
+            CorrectAnswers = correctAnswersCount
+        });
+    }
 }

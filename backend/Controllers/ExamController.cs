@@ -120,4 +120,22 @@ public class ExamController : ControllerBase
             Id = id
         });
     }
+
+
+    [HttpGet("GetExamsByUserId/{userId}")]
+    public async Task<ActionResult<List<Exam>>> GetExamsByUserId(int userId)
+    {
+        var userExists = await _context.Users.AnyAsync(u => u.Id == userId);
+        if (!userExists)
+            return BadRequest("Invalid user id.");
+
+        var exams = await _context.Exams
+            .Where(e => e.CreatedById == userId)
+            .ToListAsync();
+
+        if (!exams.Any())
+            return NotFound("No exams found.");
+
+        return Ok(exams);
+    }
 }

@@ -131,4 +131,48 @@ public class ExamResultController : ControllerBase
 
         return Ok(new { Message = "ExamResult deleted successfully." });
     }
+
+    
+    [HttpGet("GetExamResultByUser/{userId}")]
+    public async Task<IActionResult> GetExamResultByUser(int userId)
+    {
+        var userExists = await _context.Users.AnyAsync(u => u.Id == userId);
+        if (!userExists)
+        {
+            return BadRequest("Invalid UserId.");
+        }
+
+        var examResults = await _context.ExamResults
+            .Where(e => e.UserId == userId)
+            .Select(e => new
+            {
+                e.Id,
+                e.CorrectAnswers,
+                e.CreatedAt,
+                e.ExamId,
+                e.UserId
+            })
+            .ToListAsync();
+
+        if (!examResults.Any())
+        {
+            return NotFound("No Exam Result found for the provided UserId.");
+        }
+
+        return Ok(examResults);
+    }
+
+    [HttpGet("GetExamCountByUserId/{userId}")]
+    public async Task<ActionResult<int>> GetExamCountByUserId(int userId)
+    {
+        var userExists = await _context.Users.AnyAsync(u => u.Id == userId);
+        if (!userExists)
+            return BadRequest("Invalid user id.");
+
+        var examCount = await _context.ExamResults
+            .Where(e => e.UserId == userId)
+            .CountAsync();
+        return Ok(examCount);
+    }
+
 }
