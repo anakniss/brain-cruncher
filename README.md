@@ -26,7 +26,7 @@
     ```
     
 3. **Configure o banco de dados:**
-    - Localize o arquivo `appsettings.json` na pasta `Backend/` e atualize a seção `ConnectionStrings` com a string de conexão do banco de dados escolhido.Exemplo para SQL Server:
+    - Localize o arquivo `appsettings.json` na pasta `backend/` e atualize a seção `ConnectionStrings` com a string de conexão do banco de dados escolhido.Exemplo para SQL Server:
         
         ```json
         
