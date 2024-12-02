@@ -20,6 +20,24 @@ public class DataContext : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Exam>()
+            .HasOne(e => e.CreatedBy)
+            .WithMany()
+            .HasForeignKey(e => e.CreatedById)
+            .IsRequired(false);
+        
+        modelBuilder.Entity<Question>()
+            .HasOne(e => e.Exam)
+            .WithMany()
+            .HasForeignKey(e => e.ExamId)
+            .IsRequired(false);
+        
+        modelBuilder.Entity<Alternative>()
+            .HasOne(e => e.Question)
+            .WithMany()
+            .HasForeignKey(e => e.QuestionId)
+            .IsRequired(false);
+        
         modelBuilder.Entity<UserExam>()
             .HasKey(ue => new { ue.UserId, ue.ExamId });
         

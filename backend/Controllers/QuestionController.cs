@@ -116,4 +116,28 @@ public class QuestionController : ControllerBase
             Id = id
         });
     }
+
+    [HttpGet("GetQuestionByExamId/{id}")]
+    public async Task<IActionResult> GetQuestionByExamId(int id)
+    {
+        var dbExam = await _context.Exams.FindAsync(id);
+        if (dbExam is null)
+            return NotFound("Exam not found.");
+
+        var questions = await _context.Questions
+            .Where(e => e.ExamId == id)
+            .Select(e => new
+            {
+                e.Id,
+                e.Text,
+                e.CreatedAt,
+                e.ExamId
+            })
+            .ToListAsync();
+
+        if (!questions.Any())
+            return NotFound("No questions found");
+
+        return Ok(questions);
+    }
 }

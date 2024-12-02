@@ -10,8 +10,9 @@ public class Exam
     public string Title { get; set; }
     public DateTime CreatedAt { get; set; }
     public ExamType Type { get; set; }
-    public int CreatedById { get; set; }
-
     [ForeignKey("CreatedById")] 
-    public User CreatedBy { get; set; } = null!;
+    public int CreatedById { get; set; }
+    
+    [JsonIgnore]
+    public User? CreatedBy { get; set; }
 }
