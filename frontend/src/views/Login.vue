@@ -9,9 +9,8 @@ const router = useRouter();
 const email = ref('');
 const password = ref('');
 const error = ref('');
-const passwordError = ref<string | null>(null); // Validation error message for password
+const passwordError = ref<string | null>(null); 
 
-// Password validation
 const validatePassword = () => {
   const senha = password.value;
   const isValida = /^[a-zA-Z0-9]*$/.test(senha);
@@ -28,7 +27,7 @@ const validatePassword = () => {
 const handleLogin = async () => {
   try {
     error.value = '';
-    validatePassword(); // Validate password before submission
+    validatePassword(); 
     if (passwordError.value) {
       throw new Error(passwordError.value);
     }
