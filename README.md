@@ -22,10 +22,7 @@
 2. **Instale as dependências do projeto:**
     
     ```bash
-    bash
-    Copy code
     dotnet restore
-    
     ```
     
 3. **Configure o banco de dados:**
