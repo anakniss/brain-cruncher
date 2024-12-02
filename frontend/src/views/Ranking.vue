@@ -59,7 +59,7 @@ const populateRankings = async () => {
   try {
     await fetchAllResults();
 
-    rankings.value = await Promise.all(
+    const tempRankings = await Promise.all(
       resultsData.value.map(async (result) => {
         const name = await getNameById(result.userId);
         return {
@@ -69,11 +69,11 @@ const populateRankings = async () => {
         };
       })
     );
+    rankings.value = tempRankings.sort((a, b) => b.correctAnswers - a.correctAnswers);
   } catch (e) {
     console.error("Failed to populate rankings:", e);
   }
 };
-
 
 </script>
 
