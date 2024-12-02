@@ -22,12 +22,10 @@ const navItems = computed(() => {
     items.push({ name: 'Ranking', path: '/ranking' });
     items.push({ name: 'Reports', path: '/reports' });
 
-    // Allow both professors and admins to create quizzes
     if (userRole.value === Role.Professor || userRole.value === Role.Admin) {
       items.push({ name: 'Create Quiz', path: '/create-quiz' });
     }
 
-    // Only admins can create users
     if (userRole.value === Role.Admin) {
       items.push({ name: 'Create User', path: '/create-user' });
     }
